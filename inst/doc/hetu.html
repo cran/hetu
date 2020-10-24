@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Installation</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>The <strong>hetu R package</strong> provides tools to work with Finnish personal identity numbers (hetu). Some functions can also be used with Finnish Business ID numbers (y-tunnus). </p>
+
+<p>Where possible, we have unified the syntax with <a href="https://github.com/rOpenGov/sweidnumbr">sweidnumbr</a>.</p>
+
+<h2>Installation</h2>
+
+<p>Install the current devel version in R:</p>
+
+<pre><code class="r">devtools::install_github(&quot;ropengov/hetu&quot;)
+</code></pre>
+
+<p>Test the installation by loading the library:</p>
+
+<pre><code class="r">library(hetu)
+</code></pre>
+
+<p>We also recommend setting the UTF-8 encoding:</p>
+
+<pre><code class="r">Sys.setlocale(locale=&quot;UTF-8&quot;) 
+</code></pre>
+
+<h2>Introduction</h2>
+
+<p>Finnish personal identification numbers (Finnish: henkilötunnus, hetu in short), are used to identify citizens. Hetu PIN consists of eleven characters: DDMMYYCZZZQ, where DDMMYY is the day, month and year of birth, C is the century marker, ZZZ is the individual number and Q is the control character. </p>
+
+<p>Males have odd and females have even individual number. The control character is determined by dividing DDMMYYZZZ by 31 and using the remainder (modulo 31) to pick up the corresponding character from the string &ldquo;0123456789ABCDEFHJKLMNPRSTUVWXY&rdquo;. For example, if the remainder is 0, the control character is 0 and if the remainder is 12, the control character is C.</p>
+
+<p>A valid individual number is between 002-899. Individual numbers 900-999 are not in normal use and are used only for temporary or artificial PINs. These temporary PINs are sometimes used in different organizations, such as insurance companies or hospitals, if the individual is not a Finnish citizen, a permanent resident or if the exact identity of the individual cannot be determined at the time. Artificial or temporary PINs are not intended for continuous, long term use and they are not usually accepted by PIN validity checking algorithms.</p>
+
+<p>Temporary PINs provide similar information about individual&#39;s birth date or sex as regular PINs. Temporary PINs can also be safely used for testing purposes, as such a number cannot be linked to any real person.</p>
+
+<h2>Personal identification numbers (HETU)</h2>
+
+<p>The basic hetu function can be used to view information included in a Finnish personal identification number. The data is outputted as a data frame.</p>
+
+<pre><code class="r">example_pin &lt;- &quot;111111-111C&quot;
+hetu(example_pin)
+#&gt;          hetu  sex p.num checksum       date day month year century valid.pin
+#&gt; 1 111111-111C Male   111        C 1911-11-11  11    11 1911       -      TRUE
+</code></pre>
+
+<p>The output can be made prettier, for example by using knitr:</p>
+
+<pre><code class="r">knitr::kable(hetu(example_pin))
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left">hetu</th>
+<th align="left">sex</th>
+<th align="left">p.num</th>
+<th align="left">checksum</th>
+<th align="left">date</th>
+<th align="right">day</th>
+<th align="right">month</th>
+<th align="right">year</th>
+<th align="left">century</th>
+<th align="left">valid.pin</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">111111-111C</td>
+<td align="left">Male</td>
+<td align="left">111</td>
+<td align="left">C</td>
+<td align="left">1911-11-11</td>
+<td align="right">11</td>
+<td align="right">11</td>
+<td align="right">1911</td>
+<td align="left">-</td>
+<td align="left">TRUE</td>
+</tr>
+</tbody></table>
+
+<p>The hetu function also accepts vectors with several identification numbers as input:</p>
+
+<pre><code class="r">example_pins &lt;- c(&quot;010101-0101&quot;, &quot;111111-111C&quot;)
+knitr::kable(hetu(example_pins))
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left">hetu</th>
+<th align="left">sex</th>
+<th align="left">p.num</th>
+<th align="left">checksum</th>
+<th align="left">date</th>
+<th align="right">day</th>
+<th align="right">month</th>
+<th align="right">year</th>
+<th align="left">century</th>
+<th align="left">valid.pin</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">010101-0101</td>
+<td align="left">Female</td>
+<td align="left">010</td>
+<td align="left">1</td>
+<td align="left">1901-01-01</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1901</td>
+<td align="left">-</td>
+<td align="left">TRUE</td>
+</tr>
+<tr>
+<td align="left">111111-111C</td>
+<td align="left">Male</td>
+<td align="left">111</td>
+<td align="left">C</td>
+<td align="left">1911-11-11</td>
+<td align="right">11</td>
+<td align="right">11</td>
+<td align="right">1911</td>
+<td align="left">-</td>
+<td align="left">TRUE</td>
+</tr>
+</tbody></table>
+
+<p>The hetu function does not print warning messages to the user if input vector contains invalid PINs. Validity of specific PINs can be determined by looking at the valid.pin column.</p>
+
+<pre><code class="r">hetu(c(&quot;010101-0102&quot;, &quot;111311-111C&quot;, &quot;010101-0101&quot;))
+#&gt;          hetu    sex p.num checksum       date day month year century valid.pin
+#&gt; 1 010101-0102 Female   010        2 1901-01-01   1     1 1901       -     FALSE
+#&gt; 2 111311-111C   Male   111        C       &lt;NA&gt;  11    NA 1911       -     FALSE
+#&gt; 3 010101-0101 Female   010        1 1901-01-01   1     1 1901       -      TRUE
+</code></pre>
+
+<h3>Extracting specific information</h3>
+
+<p>Information contained in the PIN can be extracted with a generic extract parameter. Valid values for extraction are <em>hetu</em>, <em>sex</em>, <em>personal.number</em>, <em>checksum</em>, <em>date</em>, <em>day</em>, <em>month</em>, <em>year</em>, <em>century</em>, <em>valid.pin</em> and <em>is.temp</em>. </p>
+
+<p><em>is.temp</em> can be extracted only if allow.temp is set to TRUE. If allow.temp is set to FALSE (default), temporary PINs are filtered from the output and information provided by <em>is.temp</em> would be meaningless.</p>
+
+<pre><code class="r">hetu(example_pins, extract = &quot;sex&quot;)
+#&gt; [1] &quot;Female&quot; &quot;Male&quot;
+hetu(example_pins, extract = &quot;checksum&quot;)
+#&gt; [1] &quot;1&quot; &quot;C&quot;
+</code></pre>
+
+<p>Some fields can be extracted with specialized functions. Extracting sex with hetu_sex function:</p>
+
+<pre><code class="r">hetu_sex(example_pins)
+#&gt; [1] &quot;Female&quot; &quot;Male&quot;
+</code></pre>
+
+<p>Extracting age at current date and at a given date with hetu_age function:</p>
+
+<pre><code class="r">hetu_age(example_pins)
+#&gt; The age in years has been calculated at 2020-10-16.
+#&gt; [1] 119 108
+hetu_age(example_pins, date = &quot;2012-01-01&quot;)
+#&gt; The age in years has been calculated at 2012-01-01.
+#&gt; [1] 111 100
+hetu_age(example_pins, timespan = &quot;months&quot;)
+#&gt; The age in months has been calculated at 2020-10-16.
+#&gt; [1] 1437 1307
+</code></pre>
+
+<p>Dates (birth dates) also have their own function, hetu_date.</p>
+
+<pre><code class="r">hetu_date(example_pins)
+#&gt; [1] &quot;1901-01-01&quot; &quot;1911-11-11&quot;
+</code></pre>
+
+<h3>Validity checking</h3>
+
+<p>The basic hetu function output includes information on the validity of each pin, which can be extracted by using hetu-function with <em>valid.pin</em> as extract parameter. </p>
+
+<p>The validity of the PINs can also be determined by using the hetu_ctrl function, which produces a vector:</p>
+
+<pre><code class="r">hetu_ctrl(c(&quot;010101-0101&quot;, &quot;111111-111C&quot;)) # TRUE TRUE
+#&gt; [1] TRUE TRUE
+hetu_ctrl(&quot;010101-1010&quot;) # FALSE
+#&gt; [1] FALSE
+</code></pre>
+
+<h3>Artificial and temporary personal identification numbers</h3>
+
+<p>The package functions can be made to accept artificial or temporary personal identification numbers. Artificial and temporary PINs can be used normally by allowing them through allow.temp parameter.</p>
+
+<pre><code class="r">example_temp_pin &lt;- &quot;010101A900R&quot;
+knitr::kable(hetu(example_temp_pin, allow.temp = TRUE))
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left">hetu</th>
+<th align="left">sex</th>
+<th align="left">p.num</th>
+<th align="left">checksum</th>
+<th align="left">date</th>
+<th align="right">day</th>
+<th align="right">month</th>
+<th align="right">year</th>
+<th align="left">century</th>
+<th align="left">valid.pin</th>
+<th align="left">is.temp</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">010101A900R</td>
+<td align="left">Female</td>
+<td align="left">900</td>
+<td align="left">R</td>
+<td align="left">2001-01-01</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2001</td>
+<td align="left">A</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+</tbody></table>
+
+<p>A vector with regular and temporary PINs mixed together prints only regular PINs, if allow.temp is not set to TRUE. Automatic omitting of temporary PINs does not produce a visible error message and therefore users need to be cautious if they want to use temporary PINs.</p>
+
+<p>If temporary PINs are not explicitly allowed and the input vector consists of temporary PINs only, the function will return an error.</p>
+
+<pre><code class="r">example_temp_pins &lt;- c(&quot;010101A900R&quot;, &quot;010101-0101&quot;)
+hetu_ctrl(&quot;010101A900R&quot;, allow.temp = FALSE)
+#&gt; [1] NA
+knitr::kable(hetu(example_temp_pins))
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left"></th>
+<th align="left">hetu</th>
+<th align="left">sex</th>
+<th align="left">p.num</th>
+<th align="left">checksum</th>
+<th align="left">date</th>
+<th align="right">day</th>
+<th align="right">month</th>
+<th align="right">year</th>
+<th align="left">century</th>
+<th align="left">valid.pin</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">2</td>
+<td align="left">010101-0101</td>
+<td align="left">Female</td>
+<td align="left">010</td>
+<td align="left">1</td>
+<td align="left">1901-01-01</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1901</td>
+<td align="left">-</td>
+<td align="left">TRUE</td>
+</tr>
+</tbody></table>
+
+<p>When allow.temp is set to TRUE, all PINs are handled as if they were regular PINs.</p>
+
+<pre><code class="r">knitr::kable(hetu(example_temp_pins, allow.temp = TRUE))
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left">hetu</th>
+<th align="left">sex</th>
+<th align="left">p.num</th>
+<th align="left">checksum</th>
+<th align="left">date</th>
+<th align="right">day</th>
+<th align="right">month</th>
+<th align="right">year</th>
+<th align="left">century</th>
+<th align="left">valid.pin</th>
+<th align="left">is.temp</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">010101A900R</td>
+<td align="left">Female</td>
+<td align="left">900</td>
+<td align="left">R</td>
+<td align="left">2001-01-01</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2001</td>
+<td align="left">A</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr>
+<td align="left">010101-0101</td>
+<td align="left">Female</td>
+<td align="left">010</td>
+<td align="left">1</td>
+<td align="left">1901-01-01</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1901</td>
+<td align="left">-</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+</tr>
+</tbody></table>
+
+<pre><code class="r">hetu_ctrl(&quot;010101A900R&quot;, allow.temp = TRUE)
+#&gt; [1] TRUE
+</code></pre>
+
+<p>Validation function hetu_ctrl produces a FALSE for every artificial / temporary PIN, if they are not explicitly allowed.</p>
+
+<pre><code class="r">knitr::kable(hetu(example_temp_pins)) #FALSE TRUE
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left"></th>
+<th align="left">hetu</th>
+<th align="left">sex</th>
+<th align="left">p.num</th>
+<th align="left">checksum</th>
+<th align="left">date</th>
+<th align="right">day</th>
+<th align="right">month</th>
+<th align="right">year</th>
+<th align="left">century</th>
+<th align="left">valid.pin</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">2</td>
+<td align="left">010101-0101</td>
+<td align="left">Female</td>
+<td align="left">010</td>
+<td align="left">1</td>
+<td align="left">1901-01-01</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1901</td>
+<td align="left">-</td>
+<td align="left">TRUE</td>
+</tr>
+</tbody></table>
+
+<pre><code class="r">knitr::kable(hetu(example_temp_pins, allow.temp = TRUE)) #TRUE TRUE
+</code></pre>
+
+<table><thead>
+<tr>
+<th align="left">hetu</th>
+<th align="left">sex</th>
+<th align="left">p.num</th>
+<th align="left">checksum</th>
+<th align="left">date</th>
+<th align="right">day</th>
+<th align="right">month</th>
+<th align="right">year</th>
+<th align="left">century</th>
+<th align="left">valid.pin</th>
+<th align="left">is.temp</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">010101A900R</td>
+<td align="left">Female</td>
+<td align="left">900</td>
+<td align="left">R</td>
+<td align="left">2001-01-01</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2001</td>
+<td align="left">A</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr>
+<td align="left">010101-0101</td>
+<td align="left">Female</td>
+<td align="left">010</td>
+<td align="left">1</td>
+<td align="left">1901-01-01</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1901</td>
+<td align="left">-</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+</tr>
+</tbody></table>
+
+<h3>Generating random PINs</h3>
+
+<p>Random PINs can be generated by using the rpin function.</p>
+
+<pre><code class="r">rhetu(n = 4)
+#&gt; [1] &quot;050192-2561&quot; &quot;070662-881S&quot; &quot;200408-4689&quot; &quot;130161-6629&quot;
+rhetu(n = 4, start_date = &quot;1990-01-01&quot;, end_date = &quot;2005-01-01&quot;)
+#&gt; [1] &quot;200390-279J&quot; &quot;080991-091U&quot; &quot;070997-8208&quot; &quot;020701A0294&quot;
+</code></pre>
+
+<p>The number of males in the generated sample can be changed with parameter p.male. Default is 0.4.</p>
+
+<pre><code class="r">random_sample &lt;- rhetu(n = 4, p.male = 0.8)
+table(random_sample)
+#&gt; random_sample
+#&gt; 010207-306X 130320A107D 141273-833D 300313-387L 
+#&gt;           1           1           1           1
+</code></pre>
+
+<p>The default proportion of artificial / temporary PINs is 0.0, meaning that no artificial / temporary PINs are generated by default.</p>
+
+<pre><code class="r">temp_sample &lt;- rhetu(n = 4, p.temp = 0.5)
+table(hetu(temp_sample, allow.temp = TRUE, extract = &quot;is.temp&quot;))
+#&gt; 
+#&gt; FALSE  TRUE 
+#&gt;     2     2
+</code></pre>
+
+<h3>Diagnostics</h3>
+
+<p>In addition to information mentioned in the section <a href="#extracting-specific-information">Extracting specific information</a>, the user can choose to print additional columns containing information about checks done on PINs. The diagnostic checks produce a TRUE or FALSE for the following categories: <em>valid.p.num</em>, <em>valid.checksum</em>, <em>correct.checksum</em>, <em>valid.date</em>, <em>valid.day</em>, <em>valid.month</em>, <em>valid.year</em>, <em>valid.length</em> and <em>valid.century</em>, FALSE meaning that hetu is somehow incorrect.</p>
+
+<pre><code class="r">diagnosis_example &lt;- c(&quot;010101-0102&quot;, &quot;111111-111Q&quot;, 
+&quot;010101B0101&quot;, &quot;320101-0101&quot;, &quot;011301-0101&quot;, 
+&quot;010101-01010&quot;, &quot;010101-0011&quot;)
+head(hetu(diagnosis_example, diagnostic = TRUE), 3)
+#&gt;          hetu    sex p.num checksum       date day month year century valid.pin
+#&gt; 1 010101-0102 Female   010        2 1901-01-01   1     1 1901       -     FALSE
+#&gt; 2 111111-111Q   Male   111        Q 1911-11-11  11    11 1911       -     FALSE
+#&gt; 3 010101B0101 Female   010        1       &lt;NA&gt;   1     1   NA       B     FALSE
+#&gt;   valid.p.num valid.checksum correct.checksum valid.date valid.day valid.month
+#&gt; 1        TRUE           TRUE            FALSE       TRUE      TRUE        TRUE
+#&gt; 2        TRUE          FALSE            FALSE       TRUE      TRUE        TRUE
+#&gt; 3        TRUE           TRUE             TRUE      FALSE      TRUE        TRUE
+#&gt;   valid.year valid.length valid.century
+#&gt; 1       TRUE         TRUE          TRUE
+#&gt; 2       TRUE         TRUE          TRUE
+#&gt; 3       TRUE         TRUE         FALSE
+</code></pre>
+
+<p>Diagnostic information can be examined more closely by using subset or by using a separate hetu_diagnostics function. The user can print all diagnostic information for all PINs in the dataset:</p>
+
+<pre><code class="r">tail(hetu_diagnostic(diagnosis_example), 3)
+#&gt;           hetu is.temp valid.p.num valid.checksum correct.checksum valid.date
+#&gt; 5  011301-0101   FALSE        TRUE           TRUE            FALSE      FALSE
+#&gt; 6 010101-01010   FALSE        TRUE           TRUE             TRUE       TRUE
+#&gt; 7  010101-0011   FALSE       FALSE           TRUE            FALSE       TRUE
+#&gt;   valid.day valid.month valid.year valid.length valid.century
+#&gt; 5      TRUE       FALSE       TRUE         TRUE          TRUE
+#&gt; 6      TRUE        TRUE       TRUE        FALSE          TRUE
+#&gt; 7      TRUE        TRUE       TRUE         TRUE          TRUE
+</code></pre>
+
+<p>By using extract, the user can limit the printed columns to only those which have FALSE values.</p>
+
+<pre><code class="r">hetu_diagnostic(diagnosis_example, extract = c(&quot;valid.century&quot;, &quot;correct.checksum&quot;))
+#&gt;           hetu valid.century correct.checksum
+#&gt; 1  010101-0102          TRUE            FALSE
+#&gt; 2  111111-111Q          TRUE            FALSE
+#&gt; 3  010101B0101         FALSE             TRUE
+#&gt; 4  320101-0101          TRUE             TRUE
+#&gt; 5  011301-0101          TRUE            FALSE
+#&gt; 6 010101-01010          TRUE             TRUE
+#&gt; 7  010101-0011          TRUE            FALSE
+</code></pre>
+
+<p>When subsetting is set to TRUE, the function prints only rows with FALSE value in the extracted test.</p>
+
+<pre><code class="r">hetu_diagnostic(diagnosis_example, subsetting = TRUE, extract = &quot;valid.century&quot;)
+#&gt;          hetu    sex p.num checksum date day month year century valid.pin
+#&gt; 1 010101B0101 Female   010        1 &lt;NA&gt;   1     1   NA       B     FALSE
+#&gt;   valid.p.num valid.checksum correct.checksum valid.date valid.day valid.month
+#&gt; 1        TRUE           TRUE             TRUE      FALSE      TRUE        TRUE
+#&gt;   valid.year valid.length valid.century is.temp
+#&gt; 1       TRUE         TRUE         FALSE   FALSE
+</code></pre>
+
+<p>Because of the way PINs are handled in inside hetu-function, the diagnostics-function can show unexpected warning messages or introduce NAs by coercion if the date-part of the PIN is too long. This may result in inability to handle the PIN at all!</p>
+
+<pre><code class="r"># Faulty example
+hetu_diagnostic(c(&quot;01011901-01010&quot;))
+</code></pre>
+
+<h2>Business Identity Codes (BID)</h2>
+
+<p>The package has also the ability to generate Finnish Business ID codes (y-tunnus) and check their validity. Unlike with personal identification numbers, no additional information can be extracted from Business IDs.</p>
+
+<h3>Generating random BIDs</h3>
+
+<p>Similar to hetu PINs, random Finnish Business IDs (y-tunnus) can be generated by using rbid function.</p>
+
+<pre><code class="r">bid_sample &lt;- rbid(3)
+bid_sample
+#&gt; [1] &quot;3363802-7&quot; &quot;9073195-7&quot; &quot;2855946-3&quot;
+</code></pre>
+
+<h3>BID validity checking</h3>
+
+<p>The validity of Finnish Business Identity Codes can be checked with a similar function to hetu_ctrl: bid_ctrl.</p>
+
+<pre><code class="r">bid_ctrl(c(&quot;0737546-2&quot;, &quot;1572860-0&quot;)) # TRUE TRUE
+#&gt; [1] TRUE TRUE
+bid_ctrl(&quot;0737546-1&quot;) # FALSE
+#&gt; [1] FALSE
+</code></pre>
+
+<h2>Various examples</h2>
+
+<p>Data frames generated by hetu function work well with tidyverse/dplyr workflows as well.</p>
+
+<pre><code class="r">library(hetu)
+library(tidyverse)
+library(dplyr)
+
+# Generate data for this example
+hdat&lt;-tibble(pin=rhetu(n = 4, start_date = &quot;1990-01-01&quot;, end_date = &quot;2005-01-01&quot;))
+
+# Extract all the hetu information to tibble format
+hdat&lt;-hdat %&gt;%
+  mutate(result=map(.x=pin,.f=hetu::hetu)) %&gt;% unnest(cols=c(result))
+hdat
+</code></pre>
+
+<h2>Licensing and Citations</h2>
+
+<p>This work can be freely used, modified and distributed under the open license specified in the <a href="https://github.com/rOpenGov/hetu/blob/master/DESCRIPTION">DESCRIPTION file</a>.</p>
+
+<p>Kindly cite the work as follows</p>
+
+<pre><code class="r">citation(&quot;hetu&quot;)
+#&gt; 
+#&gt; Kindly cite the hetu R package as follows:
+#&gt; 
+#&gt;   (C) Pyry Kantanen, Mans Magnusson, Jussi Paananen and Leo Lahti
+#&gt;   (rOpenGov 2020).  hetu: Finnish personal ID number data toolkit for
+#&gt;   R.  URL: http://github.com/rOpenGov/hetu
+#&gt; 
+#&gt; A BibTeX entry for LaTeX users is
+#&gt; 
+#&gt;   @Misc{,
+#&gt;     title = {hetu: Finnish personal ID number data toolkit for R},
+#&gt;     author = {Pyry Kantanen and Mans Magnusson and Jussi Paananen and Leo Lahti},
+#&gt;     year = {2020},
+#&gt;   }
+#&gt; 
+#&gt; Many thanks for all contributors!
+</code></pre>
+
+<h2>References</h2>
+
+<ul>
+<li><a href="https://dvv.fi/en/personal-identity-code">The personal identity code</a>. Digital and population data services agency.</li>
+<li><a href="https://www.finlex.fi/fi/laki/ajantasa/2010/20100128">Valtioneuvoston asetus väestötietojärjestelmästä (128/2010)</a> (In Finnish). Valtiovarainministeriö.</li>
+<li><a href="http://urn.fi/URN:ISBN:978-952-367-296-3">HETU-uudistuksen loppuraportti</a> (In Finnish). Valtiovarainministeriön julkaisuja 2020:20.</li>
+<li><a href="https://www.prh.fi/en/kaupparekisteri/rekisterointipalvelut/ytj.html">The Business Information System (BIS)</a>. Finnish Patent and Registration Office.</li>
+</ul>
+
+<h2>Session info</h2>
+
+<p>This vignette was created with</p>
+
+<pre><code class="r">sessionInfo()
+#&gt; R version 4.0.3 (2020-10-10)
+#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)
+#&gt; Running under: macOS Catalina 10.15.7
+#&gt; 
+#&gt; Matrix products: default
+#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+#&gt; 
+#&gt; locale:
+#&gt; [1] C/fi_FI.UTF-8/fi_FI.UTF-8/C/fi_FI.UTF-8/fi_FI.UTF-8
+#&gt; 
+#&gt; attached base packages:
+#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     
+#&gt; 
+#&gt; other attached packages:
+#&gt; [1] hetu_1.0.1
+#&gt; 
+#&gt; loaded via a namespace (and not attached):
+#&gt;  [1] Rcpp_1.0.5       lubridate_1.7.9  crayon_1.3.4     dplyr_1.0.2     
+#&gt;  [5] R6_2.4.1         lifecycle_0.2.0  backports_1.1.10 magrittr_1.5    
+#&gt;  [9] evaluate_0.14    pillar_1.4.6     highr_0.8        rlang_0.4.7     
+#&gt; [13] stringi_1.5.3    ellipsis_0.3.1   checkmate_2.0.0  vctrs_0.3.4     
+#&gt; [17] generics_0.0.2   tools_4.0.3      stringr_1.4.0    glue_1.4.2      
+#&gt; [21] purrr_0.3.4      xfun_0.18        compiler_4.0.3   pkgconfig_2.0.3 
+#&gt; [25] tidyselect_1.1.0 knitr_1.30       tibble_3.0.3
+</code></pre>
+
+</body>
+
+</html>
