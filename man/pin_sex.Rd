@@ -3,28 +3,29 @@
 \name{pin_sex}
 \alias{pin_sex}
 \alias{hetu_sex}
-\title{Sex From ID}
+\title{Extract Sex from Personal Identity Code}
 \usage{
 pin_sex(pin, allow.temp = TRUE)
 
 hetu_sex(pin, allow.temp = TRUE)
 }
 \arguments{
-\item{pin}{Finnish personal identification number as a character vector, 
-or vector of identification numbers as a character vectors}
+\item{pin}{Finnish personal identity code(s) as a character vector}
 
-\item{allow.temp}{Allow artificial or temporary PINs (personal numbers 900-999). 
-If \code{FALSE} (default), only PINs intended for official use (personal numbers 002-899) are allowed.}
+\item{allow.temp}{Allow artificial or temporary PINs (personal numbers
+900-999). If \code{FALSE} (default), only PINs intended for official
+use (personal numbers 002-899) are allowed.}
 }
 \value{
 Factor with label 'Male' and 'Female'.
 }
 \description{
-Extract sex from Finnish personal identification number.
+Extract sex (as binary) from Finnish personal identification 
+   code.
 }
 \examples{
-pin_sex("010101-010A") 
-hetu_sex("010101-010A") 
+pin_sex("010101-010A")
+hetu_sex("010101-010A")
 }
 \seealso{
 \code{\link{hetu}} For general information extraction

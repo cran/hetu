@@ -3,35 +3,38 @@
 \name{pin_ctrl}
 \alias{pin_ctrl}
 \alias{hetu_ctrl}
-\title{Finnish Personal Identification Number Validator}
+\title{Check Validity of Personal Identity Code}
 \usage{
 pin_ctrl(pin, allow.temp = FALSE)
 
 hetu_ctrl(pin, allow.temp = FALSE)
 }
 \arguments{
-\item{pin}{Finnish personal identification number as a character vector, or
-vector of identification numbers as a character vectors.}
+\item{pin}{Finnish personal identity code(s) as a character vector}
 
-\item{allow.temp}{If TRUE, temporary PINs (personal numbers 900-999) are handled
-similarly to regular PINs (personal numbers 002-899), meaning that otherwise valid
-temporary PIN will return a TRUE. Default is \code{FALSE}.}
+\item{allow.temp}{If TRUE, temporary PINs (personal numbers 900-999) are
+handled similarly to regular PINs (personal numbers 002-899), meaning
+that otherwise valid temporary PIN will return a TRUE. Default
+is \code{FALSE}.}
 }
 \value{
-Logical indicating whether the input string is a valid Finnish personal identification number,
+A logical vector indicating whether the input vector contains valid
+ Finnish personal identity codes.
 }
 \description{
-Validate Finnish personal identification numbers (hetu).
+Validate Finnish personal identity codes (hetu).
 }
 \examples{
 pin_ctrl("010101-0101") # TRUE
 pin_ctrl("010101-010A") # FALSE
+pin_ctrl(c("010101-0101", "010101-010A")) # TRUE FALSE
 hetu_ctrl("010101-0101") # TRUE
 hetu_ctrl("010101-010A") # FALSE
+hetu_ctrl(c("010101-0101", "010101-010A")) # TRUE FALSE
 }
 \seealso{
 \code{\link{hetu}} For extracting information from Finnish personal
-  identification numbers.
+   identity codes.
 }
 \author{
 Pyry Kantanen

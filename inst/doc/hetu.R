@@ -26,7 +26,7 @@ knitr::kable(hetu(example_pins))
 
 ## ----hetuextract1, message=FALSE----------------------------------------------
 hetu(example_pins, extract = "sex")
-hetu(example_pins, extract = "checksum")
+hetu(example_pins, extract = "ctrl.char")
 
 ## ----hetuextract2, message=FALSE, eval=TRUE-----------------------------------
 hetu_sex(example_pins)
@@ -53,7 +53,7 @@ hetu_ctrl("010101A900R", allow.temp = TRUE)
 
 ## ----rpin, message=FALSE------------------------------------------------------
 rhetu(n = 4)
-rhetu(n = 4, start_date = "1990-01-01", end_date = "2005-01-01")
+rhetu(n = 4, start.date = "1990-01-01", end.date = "2005-01-01")
 
 ## ----rpin2, message=FALSE-----------------------------------------------------
 random_sample <- rhetu(n = 4, p.male = 0.8)

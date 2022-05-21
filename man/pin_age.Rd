@@ -3,20 +3,19 @@
 \name{pin_age}
 \alias{pin_age}
 \alias{hetu_age}
-\title{Age from ID}
+\title{Extract Age from Personal Identity Code}
 \usage{
 pin_age(pin, date = Sys.Date(), timespan = "years", allow.temp = FALSE)
 
 hetu_age(pin, date = Sys.Date(), timespan = "years", allow.temp = FALSE)
 }
 \arguments{
-\item{pin}{Finnish personal identification number as a character vector, 
-or vector of identification numbers as a character vectors}
+\item{pin}{Finnish personal identity code(s) as a character vector}
 
-\item{date}{Date at which age is calculated. If a vector is provided it must be
-of the same length as the \code{pin} argument.}
+\item{date}{Date at which age is calculated. If a vector is provided it
+must be of the same length as the \code{pin} argument.}
 
-\item{timespan}{Timespan to use to calculate age. The actual timespans are:
+\item{timespan}{Timespan to use to calculate age. The possible timespans are:
 \itemize{
   \item \code{years} (Default)
   \item \code{months}
@@ -24,14 +23,16 @@ of the same length as the \code{pin} argument.}
   \item \code{days}
 }}
 
-\item{allow.temp}{Allow artificial or temporary PINs (personal numbers 900-999). 
-If \code{FALSE} (default), only PINs intended for official use (personal numbers 002-899) are allowed.}
+\item{allow.temp}{Allow artificial or temporary PINs (personal numbers
+900-999). If \code{FALSE} (default), only PINs intended for official
+use (personal numbers 002-899) are allowed.}
 }
 \value{
 Age as an integer vector.
 }
 \description{
-Calculate the age in full years for a given date.
+Calculate age in years, months, weeks or days from 
+   personal identity codes.
 }
 \examples{
 ex_pin <- c("010101-0101", "111111-111C")
