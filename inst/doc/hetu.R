@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 library(hetu)
 
 ## ----locale, eval=FALSE-------------------------------------------------------
-#  Sys.setlocale(locale="UTF-8")
+#  Sys.setlocale(locale = "UTF-8")
 
 ## ----hetu_example1, message=FALSE---------------------------------------------
 example_pin <- "111111-111C"
@@ -77,11 +77,14 @@ bid_ctrl("0737546-1") # FALSE
 #  library(dplyr)
 #  
 #  # Generate data for this example
-#  hdat<-tibble(pin=rhetu(n = 4, start_date = "1990-01-01", end_date = "2005-01-01"))
+#  hdat <- tibble(pin = rhetu(n = 4,
+#                             start.date = "1990-01-01",
+#                             end.date = "2005-01-01"))
 #  
 #  # Extract all the hetu information to tibble format
-#  hdat<-hdat %>%
-#    mutate(result=map(.x=pin,.f=hetu::hetu)) %>% unnest(cols=c(result))
+#  hdat <- hdat %>%
+#    mutate(result = map(.x = pin, .f = hetu::hetu)) %>%
+#    unnest(cols = c(result))
 #  hdat
 
 ## ----citation, message=FALSE, eval=TRUE---------------------------------------
